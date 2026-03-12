@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskflow
+  labels:
+    app: taskflow
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: taskflow
+  template:
+    metadata:
+      labels:
+        app: taskflow
+    spec:
+      containers:
+      - name: taskflow
+        image: taskflow:v2
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+        envFrom:
+        - configMapRef:
+            name: taskflow-config
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 3
+          periodSeconds: 5
