@@ -10,6 +10,9 @@ import uuid
 
 app = Flask(__name__)
 
+test = "test"
+assert test == "test1"
+
 # --- Configuration ---
 REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
 REDIS_PORT = int(os.environ.get('REDIS_PORT', 6379))
