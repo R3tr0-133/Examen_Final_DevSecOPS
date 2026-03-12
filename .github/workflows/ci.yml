@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Python 3.11-slim-bookworm
+      - name: Setup Python 3.11
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11-slim-bookworm'
+          python-version: '3.11'
       - name: Installer les dépendances
         run: pip install -r requirements.txt
       - name: Exécuter les tests
