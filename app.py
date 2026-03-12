@@ -10,8 +10,8 @@ import uuid
 
 app = Flask(__name__)
 
-test = "test"
-assert test == "test1"
+# test = "test"
+# assert test == "test1" Test volontairement cassé pour démonstration de CI/CD partie 3.2
 
 # --- Configuration ---
 REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
